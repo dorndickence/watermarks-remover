@@ -113,6 +113,20 @@ python3 "$SCRIPTS/inspect_text.py" report.docx
 Detection is by magic number plus a control-byte ratio, so text in encodings
 other than UTF-8 keeps working. `--force-text` overrides it everywhere.
 
+## Web frontend (Next.js)
+
+A production-ready web frontend now lives in [`frontend/`](frontend/) and talks to the same HTTP API (`/inspect`, `/clean`, `/health`, `/openapi.json`) via a Next.js API proxy.
+
+```bash
+cd frontend
+cp .env.example .env
+npm install
+npm run dev           # http://127.0.0.1:3000
+npm run build && npm run start
+```
+
+The UI includes drag-and-drop upload, pre-clean inspection, configurable clean options, JSON reports, residual-risk warnings, cleaned-file download, and a local credits modal with top-up placeholder flow.
+
 ## HTTP service
 
 The same machinery runs as a stdlib HTTP service (`service/scripts/server.py`) — the interface the skill uses and the way any web app can integrate without vendoring:
