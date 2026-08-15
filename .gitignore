@@ -12,6 +12,8 @@
 !/skills/remove-ai-marks/**
 !/tests/
 !/tests/**
+!/frontend/
+!/frontend/**
 !/.dockerignore
 !/.env.example
 !/.gitignore
@@ -36,3 +38,6 @@
 posts.md
 *.cleaned.*
 *.bak
+/frontend/node_modules/
+/frontend/.next/
+/frontend/.env
